@@ -1,0 +1,18 @@
+/* Base colors */
+@define-color background   #1a1a1a;
+@define-color foreground   #ffffff;
+
+/* Accent palette */
+@define-color color1 #1e1e2e; /* dark base / button backgrounds */
+@define-color color2 #00BFFF; /* primary accent - light blue */
+@define-color color3 #6EC6FF; /* secondary accent - lighter blue */
+@define-color color4 #2a2a3a; /* muted dark blue-gray */
+@define-color color5 #4FC3F7; /* hover accent - vivid light blue */
+@define-color color6 #ff5555; /* urgent/critical - red */
+
+/* Semantic mappings used across notifications.css / central_control.css */
+@define-color text            @foreground;
+@define-color background-alt  @color1;
+@define-color selected        @color3;
+@define-color hover           @color5;
+@define-color urgent          @color6;

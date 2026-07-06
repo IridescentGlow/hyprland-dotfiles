@@ -1,0 +1,3 @@
+-- local terminal    = "kitty"
+-- local fileManager = "dolphin"
+-- local menu        = "hyprlauncher"
