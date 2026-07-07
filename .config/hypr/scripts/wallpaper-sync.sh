@@ -9,3 +9,7 @@ wal -i "$WALLPAPER"
 
 BORDER_COLOR=$(sed -n '5p' ~/.cache/wal/colors | sed 's/#//')
 hyprctl eval "hl.config({ general = { col = { active_border = 'rgb($BORDER_COLOR)' } } })"
+
+~/.config/hypr/scripts/btop-pywal-theme.sh
+
+notify-send "Theme updated" "btop colors will refresh next time it's opened" -t 1500

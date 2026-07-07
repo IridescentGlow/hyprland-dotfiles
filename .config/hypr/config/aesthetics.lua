@@ -4,7 +4,7 @@ hl.config({
         gaps_in          = 5,
         gaps_out         = 20,
 
-        border_size      = 3,
+        border_size      = 0,
 
         col              = {
             active_border   = "rgba(00BFFF00)",
@@ -159,4 +159,41 @@ hl.window_rule({
 hl.window_rule({
     match = { class = "^(org.kde.dolphin)$" },
     opacity = "0.85 0.75"
+})
+
+--------------------------------------------------------
+
+hl.window_rule({
+    match = { class = "^(kitty)$", title = "^(btop)$" },
+    float = true,
+    size = "monitor_w*0.5 monitor_h*1.0",
+    move = "monitor_w*0.5 monitor_h*0.0"
+})
+
+hl.window_rule({
+    match = { class = "^(kitty)$", title = "^(pipes\\.sh)$" },
+    float = true,
+    size = "monitor_w*0.5 monitor_h*0.25",
+    move = "monitor_w*0.0 monitor_h*0.0"
+})
+
+hl.window_rule({
+    match = { class = "^(kitty)$", title = "^(eyepic-dash)$" },
+    float = true,
+    size = "monitor_w*0.5 monitor_h*0.25",
+    move = "monitor_w*0.0 monitor_h*0.25"
+})
+
+hl.window_rule({
+    match = { class = "^(kitty)$", title = "^(cmatrix)$" },
+    float = true,
+    size = "monitor_w*0.5 monitor_h*0.25",
+    move = "monitor_w*0.0 monitor_h*0.5"
+})
+
+hl.window_rule({
+    match = { class = "^(kitty)$", title = "^(cava)$" },
+    float = true,
+    size = "monitor_w*0.5 monitor_h*0.25",
+    move = "monitor_w*0.0 monitor_h*0.75"
 })

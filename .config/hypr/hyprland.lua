@@ -54,7 +54,7 @@ local code        = "code" ----Unused----
 
 
 local wallpapers = {
-    [2] = "/home/luminara/Pictures/wallpaper1.jpg",
+    [2] = "/home/luminara/Pictures/wallpaper22.jpg",
     [3] = "/home/luminara/Pictures/wallpaper2.jpg",
     [4] = "/home/luminara/Pictures/wallpaper3.jpg",
     [5] = "/home/luminara/Pictures/wallpaper4.jpg",
@@ -62,6 +62,14 @@ local wallpapers = {
     [7] = "/home/luminara/Pictures/wallpaper11.png",
     [8] = "/home/luminara/Pictures/wallpaper12.png",
     [9] = "/home/luminara/Pictures/wallpaper13.png",
+}
+
+
+
+local eyePics = {
+    [1] = "/home/luminara/Pictures/anime-eyes-blue.jpg",
+    [2] = "/home/luminara/Pictures/anime-eyes-green.jpeg",
+    [3] = "/home/luminara/Pictures/anime-eyes-purple.png",
 }
 
 
@@ -156,13 +164,22 @@ hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 
 
 ---- CUSTOM BINDS ----
-
 ----     APPS     ----
 
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("kitty -e btop"))
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("kitty -e zsh -c 'cava; exec zsh'"))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("kitty -e zsh -c 'neofetch; exec zsh'"))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("kitty -e cmatrix -b -C white"))
-hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("kitty -e tty-clock -C 6 -S -c -t -D"))
+hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("kitty -e tty-clock -t -C 6 -S -D -c"))
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("kitty -e pipes.sh -t 1 -c 4 -p 4 -f 60 -r 3000 -B"))
+
+for i = 1, 3 do
+    hl.bind(mainMod .. " + SHIFT + CTRL + " .. i,
+        hl.dsp.exec_cmd("kitty -o background_image=" .. eyePics[i] ..
+            " -o background_image_layout=cscaled -o window_padding_width=0 -e sh -c 'printf \"\\e[?25l\"; clear; sleep infinity'"))
+end
+
+hl.bind(mainMod .. " + ALT + B", hl.dsp.exec_cmd("/home/luminara/.config/hypr/scripts/border-toggle.sh"))
 hl.bind(mainMod .. " + SHIFT + A",
     hl.dsp.exec_cmd("kitty -e zsh -c 'neofetch --ascii ~/Documents/Au5_ascii.txt --ascii_colors 39; exec zsh'"))
 hl.bind(mainMod .. " + SHIFT + L",
@@ -174,10 +191,86 @@ hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(bar))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(notes))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(editor))
 hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(bluetooth))
+hl.bind(mainMod .. " + ALT + M", hl.dsp.exec_cmd("spotify"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("sh -c '/home/luminara/.config/hypr/scripts/waybar-toggle.sh'"))
+hl.bind(mainMod .. " + ALT + N",
+    hl.dsp.exec_cmd(
+        "kitty --listen-on unix:/tmp/kitty-now-playing -e /home/luminara/.config/hypr/scripts/now-playing.sh"))
+hl.bind(mainMod .. " + ALT + S", hl.dsp.exec_cmd("/home/luminara/.config/hypr/scripts/shadow-toggle.sh"))
+hl.bind(mainMod .. " + ALT + D",
+    hl.dsp.exec_cmd("sh -c 'pgrep -x hyprsunset && pkill -x hyprsunset || hyprsunset -t 4000 &'"))
 -- hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(code))
 
+
+--------------------
+---- DASHBOARDS ----
+--------------------
+
+hl.bind(mainMod .. " + SHIFT + CTRL + 6", hl.dsp.exec_cmd("sh -c \"" ..
+    "/home/luminara/.config/hypr/scripts/wallpaper-sync.sh '/home/luminara/Pictures/wallpaper3.jpg'; " ..
+    "hyprctl dispatch workspace 1; sleep 0.3; " ..
+    "kitty -e zsh -c 'neofetch --ascii ~/Documents/Au5_ascii.txt; exec zsh' & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect r; " ..
+    "kitty -e yazi & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect d; " ..
+    "kitty -e zsh -c 'cava; exec zsh' & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect d; " ..
+    "kitty -e cmatrix -b -C white & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect d; " ..
+    "kitty -e zsh -c 'while true; do tty-clock -b -C 6 -S -t -c -D; done' &" ..
+    "\""))
+
+-- blue2
+hl.bind(mainMod .. " + SHIFT + CTRL + 7", hl.dsp.exec_cmd("sh -c \"" ..
+    "/home/luminara/.config/hypr/scripts/wallpaper-sync.sh '/home/luminara/Pictures/wallpaper3.jpg'; " ..
+    "hyprctl dispatch workspace 1; sleep 0.3; " ..
+    "kitty -e btop & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect r; " ..
+    "kitty -e pipes.sh & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect r; " ..
+    "kitty -e cmatrix -b -C white & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect r; " ..
+    "kitty -o background_image=" ..
+    eyePics[1] ..
+    " -o background_image_layout=cscaled -o window_padding_width=0 -e sh -c 'printf \\\"\\e[?25l\\\"; clear; sleep infinity' & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect r; " ..
+    "kitty -e zsh -c 'cava; exec zsh' &" ..
+    "\""))
+
+-- green2
+hl.bind(mainMod .. " + SHIFT + CTRL + 8", hl.dsp.exec_cmd("sh -c \"" ..
+    "/home/luminara/.config/hypr/scripts/wallpaper-sync.sh '/home/luminara/Pictures/wallpaper10.png'; " ..
+    "hyprctl dispatch workspace 1; sleep 0.3; " ..
+    "kitty -e btop & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect r; " ..
+    "kitty -e pipes.sh & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect r; " ..
+    "kitty -e cmatrix -b -C white & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect r; " ..
+    "kitty -o background_image=" ..
+    eyePics[2] ..
+    " -o background_image_layout=cscaled -o window_padding_width=0 -e sh -c 'printf \\\"\\e[?25l\\\"; clear; sleep infinity' & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect r; " ..
+    "kitty -e zsh -c 'cava; exec zsh' &" ..
+    "\""))
+
+-- purple
+hl.bind(mainMod .. " + SHIFT + CTRL + 9", hl.dsp.exec_cmd("sh -c \"" ..
+    "/home/luminara/.config/hypr/scripts/wallpaper-sync.sh '/home/luminara/Pictures/wallpaper22.jpg'; " ..
+    "hyprctl dispatch workspace 1; sleep 0.3; " ..
+    "kitty -e btop & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect r; " ..
+    "kitty -e pipes.sh & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect r; " ..
+    "kitty -e cmatrix -b -C white & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect r; " ..
+    "kitty -o background_image=" ..
+    eyePics[3] ..
+    " -o background_image_layout=cscaled -o window_padding_width=0 -e sh -c 'printf \\\"\\e[?25l\\\"; clear; sleep infinity' & sleep 0.6; " ..
+    "hyprctl dispatch layoutmsg preselect r; " ..
+    "kitty -e zsh -c 'cava; exec zsh' &" ..
+    "\""))
 
 ----   HYPRSHOT   ----
 
@@ -238,15 +331,7 @@ end
 
 for i = 2, 9 do
     hl.bind(mainMod .. " + CTRL + ALT + " .. i,
-        hl.dsp.exec_cmd("sh -c \"echo 'Key: " ..
-            i ..
-            " Path: " ..
-            wallpapers[i] ..
-            "' >> /tmp/wallpaper_debug.log; waypaper --wallpaper '" ..
-            wallpapers[i] ..
-            "' && wal -i '" ..
-            wallpapers[i] ..
-            "'\""))
+        hl.dsp.exec_cmd("/home/luminara/.config/hypr/scripts/wallpaper-sync.sh '" .. wallpapers[i] .. "'"))
 end
 
 
@@ -307,3 +392,20 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 -- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
 -- Example window rules that are useful
+--
+--
+
+--------------------------------
+----  EXPERIMENTAL FEATURE  ----
+--------------------------------
+
+hl.window_rule({
+    match = { class = "^(dummy-unfocus)$" },
+    float = true,
+    size = "1 1",
+    move = "0 0",
+    no_blur = true,
+    opacity = "0.0"
+})
+
+hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.exec_cmd("sh -c \"kitty --class dummy-unfocus -e sleep 0.1 &\""))

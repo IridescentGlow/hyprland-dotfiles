@@ -1,93 +1,92 @@
 {
-  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "$schema": "/home/luminara/.config/swaync/configSchema.json",
+  "control-center-height": 2,
+  "control-center-layer": "overlay",
+  "control-center-margin-bottom": 0,
+  "control-center-margin-left": 0,
+  "control-center-margin-right": 10,
+  "control-center-margin-top": 0,
+  "control-center-width": 500,
+  "cssPriority": "application",
+  "control-center-positionX": "right",
+  "control-center-positionY": "center",
+  "fit-to-screen": true,
+  "hide-on-action": false,
+  "hide-on-clear": true,
+  "image-visibility": "when-available",
+  "keyboard-shortcuts": true,
+  "layer": "layer",
+  "notification-body-image-height": 100,
+  "notification-body-image-width": 200,
+  "notification-icon-size": 40,
+  "notification-inline-replies": true,
+  "notification-visibility": {},
+  "notification-window-width": 400,
   "positionX": "right",
   "positionY": "top",
-  "cssPriority": "user",
-  "control-center-width": 380,
-  "control-center-margin-top": 0,
-  "control-center-height": 1114,
-  "control-center-margin-bottom": 0,
-  "control-center-margin-right": 1,
-  "control-center-margin-left": 0,
-  "notification-window-width": 400,
-  "notification-icon-size": 48,
-  "notification-body-image-height": 160,
-  "notification-body-image-width": 200,
-  "timeout": 4,
-  "timeout-low": 2,
-  "timeout-critical": 6,
-  "fit-to-screen": false,
-  "keyboard-shortcuts": true,
-  "image-visibility": "when-available",
-  "transition-time": 200,
-  "hide-on-clear": false,
-  "hide-on-action": false,
   "script-fail-notify": true,
-  "scripts": {
-    "example-script": {
-      "exec": "echo 'Do something...'",
-      "urgency": "Normal"
-    }
-  },
-  "notification-visibility": {
-    "example-name": {
-      "state": "muted",
-      "urgency": "Low",
-      "app-name": "Spotify"
-    }
-  },
-  "widgets": [
-    "label",
-    "buttons-grid",
-    "mpris",
-    "title",
-    "dnd",
-    "notifications"
-  ],
+  "scripts": {},
+  "timeout": 10,
+  "timeout-critical": 0,
+  "timeout-low": 5,
+  "transition-time": 100,
   "widget-config": {
-    "title": {
-      "text": "Notifications",
-      "clear-all-button": true,
-      "button-text": " 󰎟 "
-    },
-    "dnd": {
-      "text": "Do not disturb"
-    },
-    "label": {
-      "max-lines": 1,
-      "text": " "
-    },
-    "mpris": {
-      "image-size": 96,
-      "image-radius": 12
-    },
-    "volume": {
-      "label": "󰕾",
-      "show-per-app": true
-    },
     "buttons-grid": {
       "actions": [
         {
-          "label": " ",
-          "command": "amixer set Master toggle"
+          "active": false,
+          "command": "notify-send 'hey'",
+          "label": "󰤄",
+          "type": "toggle",
+          "update_command": "notify-send 'Hi'"
         },
         {
-          "label": "",
-          "command": "amixer set Capture toggle"
+          "active": false,
+          "command": "swaync-client -d",
+          "label": "",
+          "type": "toggle"
         },
         {
-          "label": " ",
-          "command": "nm-connection-editor"
+          "active": false,
+          "command": "obs",
+          "label": "󰄀",
+          "type": "button"
         },
         {
-          "label": "󰂯",
-          "command": "blueman-manager"
+          "active": false,
+          "command": "obs",
+          "label": "󰕧",
+          "type": "button"
         },
         {
-          "label": "󰏘",
-          "command": "nwg-look"
+          "active": false,
+          "command": "swaync-client -t",
+          "label": "",
+          "type": "toggle"
         }
       ]
+    },
+    "mpris": {
+      "image-radius": 12,
+      "image-size": 96
+    },
+    "title": {
+      "text": "Notifications",
+      "button-text": "󰎟 Clear",
+      "clear-all-button": true
+    },
+    "volume": {
+      "label": "",
+      "show-per-app": true,
+      "show-per-app-icon": true,
+      "show-per-app-label": true
     }
-  }
+  },
+  "widgets": [
+    "title",
+    "notifications",
+    "buttons-grid",
+    "mpris",
+    "volume"
+  ]
 }

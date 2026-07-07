@@ -1,0 +1,21 @@
+[ngr]
+show_hidden = true
+show_icons = true
+sort_by = 'alphabetical'
+sort_sensetive = false
+sort_reverse = false
+sort_dir_first = true
+
+# [opener]
+# edit = [
+#     { run = 'kate "$@"', block = false, desc = "Kate" }
+# ]
+
+# [open]
+# rules = [
+#     { name = "*.qml", use = "edit" },
+#     { mime = "text/*", use = "edit" },
+#     { name = "*.txt", use = "edit" },
+#     { name = "*.json", use = "edit" },
+#     { name = "*.md", use = "edit" },
+# ]
