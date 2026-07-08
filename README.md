@@ -2,7 +2,7 @@
 
 My personal Hyprland rice — Lua-based config, wallpaper/color sync, custom keybinds, and a themed swaync/waybar setup.
 
-![Workspace 1 dashboard, amber theme](screenshots/dashboard-amber.png)
+![Workspace 1 dashboard, amber theme](screenshots/dashboard-blue2.png)
 
 ## Table of Contents
 
@@ -46,9 +46,9 @@ The whole workspace-1 dashboard (see below) re-themes automatically with whateve
 
 | | | |
 |---|---|---|
-| ![Magenta](screenshots/dashboard-magenta.png) | ![Green](screenshots/dashboard-green.png) | ![Blue/eyes](screenshots/dashboard-blue-eyes.png) |
-| ![Pink](screenshots/dashboard-pink.png) | ![Cyan](screenshots/dashboard-cyan.png) | ![Green 2](screenshots/dashboard-green2.png) |
-| ![Amber](screenshots/dashboard-amber.png) | ![Blue](screenshots/dashboard-blue.png) | |
+| ![Blue](screenshots/dashboard-blue1.png) | ![Green](screenshots/dashboard-green1.png) | ![Blue/eyes](screenshots/dashboard-blue2.png) |
+| ![Green/eyes](screenshots/dashboard-green2.png) | ![Amber](screenshots/dashboard-amber.png) | ![Purple](screenshots/dashboard-purple.png) |
+| ![sakura](screenshots/dashboard-sakura.png) | |
 
 ---
 
