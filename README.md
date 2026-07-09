@@ -47,8 +47,8 @@ The whole workspace-1 dashboard (see below) re-themes automatically with whateve
 | | | |
 |---|---|---|
 | ![Blue](screenshots/dashboard-blue1.png) | ![Green](screenshots/dashboard-green1.png) | ![Blue/eyes](screenshots/dashboard-blue2.png) |
-| ![Green/eyes](screenshots/dashboard-green2.png) | ![Amber](screenshots/dashboard-amber.png) | ![Purple](screenshots/dashboard-purple.png) |
-| ![sakura](screenshots/dashboard-sakura.png) | |
+| ![Green/eyes](screenshots/dashboard-green2.png) | ![Amber](screenshots/dashboard-amber.png) | ![Purple](screenshots/dashboard-purple1.png) |
+| ![Sakura](screenshots/dashboard-sakura.png) | ![Purple/eyes](screenshots/dashboard-purple2.png)|
 
 ---
 
