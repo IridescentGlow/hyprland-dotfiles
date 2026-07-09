@@ -181,7 +181,7 @@ end
 
 hl.bind(mainMod .. " + ALT + B", hl.dsp.exec_cmd("/home/luminara/.config/hypr/scripts/border-toggle.sh"))
 hl.bind(mainMod .. " + SHIFT + A",
-    hl.dsp.exec_cmd("kitty -e zsh -c 'neofetch --ascii ~/Documents/Au5_ascii.txt --ascii_colors 39; exec zsh'"))
+    hl.dsp.exec_cmd("kitty -e zsh -c 'neofetch --ascii ~/Documents/Au5_ascii.txt; exec zsh'"))
 hl.bind(mainMod .. " + SHIFT + L",
     hl.dsp.exec_cmd("kitty -e zsh -c 'neofetch --ascii ~/Documents/L-ascii.txt --ascii_colors 39; exec zsh'"))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(wallpaper))
