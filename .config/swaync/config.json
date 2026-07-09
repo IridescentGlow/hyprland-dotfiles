@@ -7,7 +7,7 @@
   "control-center-margin-right": 10,
   "control-center-margin-top": 0,
   "control-center-width": 500,
-  "cssPriority": "application",
+  "cssPriority": "user",
   "control-center-positionX": "right",
   "control-center-positionY": "center",
   "fit-to-screen": true,
@@ -15,7 +15,7 @@
   "hide-on-clear": true,
   "image-visibility": "when-available",
   "keyboard-shortcuts": true,
-  "layer": "layer",
+  "layer": "overlay",
   "notification-body-image-height": 100,
   "notification-body-image-width": 200,
   "notification-icon-size": 40,
@@ -88,5 +88,7 @@
     "buttons-grid",
     "mpris",
     "volume"
-  ]
+  ],
+  "ignore-gtk-theme": true,
+  "notification-grouping": false
 }

@@ -171,7 +171,7 @@ hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("kitty -e zsh -c 'cava; exec 
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("kitty -e zsh -c 'neofetch; exec zsh'"))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("kitty -e cmatrix -b -C white"))
 hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("kitty -e tty-clock -t -C 6 -S -D -c"))
-hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("kitty -e pipes.sh -t 1 -c 4 -p 4 -f 60 -r 3000 -B"))
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("kitty -e pipes.sh"))
 
 for i = 1, 3 do
     hl.bind(mainMod .. " + SHIFT + CTRL + " .. i,

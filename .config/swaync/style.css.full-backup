@@ -11,10 +11,10 @@
 
 .notification-row {
     background-color: transparent;
-    margin-top: 6px;
-    margin-bottom: 6px;
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
     min-height: 70px;
 }
 
@@ -37,11 +37,11 @@
 
 .control-center .notification-row .notification-background .notification {
     margin-top: 0.15rem;
-    background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0) !important;
 }
 
 .notification-row .notification-background .notification {
-    background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0) !important;
 }
 
 .control-center .notification-row .notification-background .notification box,
@@ -274,7 +274,7 @@
 
 .control-center .notification-row .close-button:hover,
 .floating-notifications.background .close-button:hover {
-    background-color: rgba(128, 128, 128, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
 .control-center {
@@ -443,112 +443,87 @@
     font-size: 1.1rem;
 }
 
-.control-center .notification-row,
-.control-center .notification-row .notification-background,
-.control-center .notification-row .notification-background .notification,
-.control-center .notification-group {
-    background-color: rgba(0, 0, 0, 0.06);
-    background-image: none;
-    box-shadow: none;
-    margin-bottom: 8px;
-}
-
-.control-center .notification-row {
-    min-height: 80px;
-}
-
-.floating-notifications .notification-row,
-.floating-notifications .notification-row .notification-background,
-.floating-notifications
-    .notification-row
-    .notification-background
-    .notification,
-.floating-notifications .notification-group {
-    background-color: rgba(0, 0, 0, 0.06);
-    background-image: none;
-    box-shadow: none;
-    margin-bottom: 8px;
-}
-
-.floating-notifications .notification-row,
-.control-center .notification-row {
-    all: unset;
-    display: block;
-}
-
-.floating-notifications .notification-row .notification-background,
 .control-center .notification-row .notification-background {
-    all: unset;
-    display: block;
+    background-color: transparent;
+    box-shadow: none;
 }
 
+:root {
+    --noti-bg: 0, 0, 0;
+    --noti-bg-alpha: 0.06;
+}
+
+.notification-row .notification-background .notification,
 .floating-notifications
     .notification-row
     .notification-background
-    .notification,
-.control-center .notification-row .notification-background .notification {
-    all: unset;
-    display: block;
-    background: rgba(0, 0, 0, 0.06);
-    border-radius: 12px;
-    padding: 12px;
+    .notification {
+    background: rgba(0, 0, 0, 0) !important;
 }
 
-.floating-notifications .notification-row,
-.control-center .notification-row {
-    all: unset;
-    display: block;
+.notification-row {
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    min-height: 70px;
 }
 
-.floating-notifications .notification-row .notification-background,
-.control-center .notification-row .notification-background {
-    all: unset;
-    display: block;
-}
-
-.floating-notifications
-    .notification-row
-    .notification-background
-    .notification,
-.control-center .notification-row .notification-background .notification {
-    all: unset;
-    display: block;
-    background: rgba(0, 0, 0, 0.06);
-    border-radius: 12px;
-    padding: 12px;
+.notification-row .notification-background {
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
 }
 
 .floating-notifications.background
     .notification-row
     .notification-background
     .notification {
-    background: rgba(0, 0, 0, 0.06);
-    box-shadow: none;
+    background-color: transparent !important;
 }
 
-.widget-mpris,
-.widget-mpris-player {
-    background-color: rgba(0, 0, 0, 0.06);
-    background-image: none;
+.control-center .notification-row .notification-background .notification {
+    background-color: transparent !important;
+    margin-bottom: 8px !important;
 }
 
-.floating-notifications.background .notification-row {
-    margin-top: 12px;
-    margin-right: 12px;
-}
-
-.widget-mpris .widget-mpris-player .mpris-overlay {
-    border-radius: 1.159rem;
-    background-color: rgba(0, 0, 0, 0.35);
+.control-center .notification-row {
+    min-height: 80px !important;
+    margin-bottom: 8px !important;
 }
 
 .notification-group {
-    background: transparent;
-    border-radius: 1.159rem;
-    margin-bottom: 8px;
+    background: rgba(0, 0, 0, 0.06) !important;
+    margin: 4px 8px !important;
 }
 
-.notification-row .notification-background .notification .notification-default-action:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 1.159rem;
+.notification-group-headers {
+    background: transparent !important;
+}
+
+:root {
+    --notification-shadow: none;
+}
+
+.notification-group,
+.notification-row,
+.notification-row .notification-background,
+.notification-row .notification-background .notification {
+    box-shadow: none !important;
+}
+
+.notification-group,
+.notification-row,
+.notification-row .notification-background,
+.notification-row .notification-background .notification {
+    background: rgba(255, 0, 0, 0.9) !important;
+    box-shadow: none !important;
+}
+
+row {
+    background: rgba(255, 0, 0, 0.9) !important;
+}
+list {
+    background: transparent !important;
 }
