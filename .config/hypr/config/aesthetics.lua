@@ -66,20 +66,20 @@ hl.animation({ leaf = "global", enabled = true, speed = 10, bezier = "default" }
 hl.animation({ leaf = "border", enabled = true, speed = 5.39, bezier = "easeOutQuint" })
 
 ---- Custom Window Animations ----
-hl.animation({ leaf = "windows", enabled = true, speed = 4.79, spring = "bouncy" })
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 2, spring = "bouncy", style = "slide" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, bezier = "easeOutQuint", style = "slide" })
-hl.animation({ leaf = "fadeIn", enabled = true, speed = 1.73, bezier = "almostLinear" })
-hl.animation({ leaf = "fadeOut", enabled = true, speed = 1.46, bezier = "almostLinear" })
-hl.animation({ leaf = "fade", enabled = true, speed = 3.03, bezier = "quick" })
-hl.animation({ leaf = "layers", enabled = true, speed = 3.81, bezier = "easeOutQuint" })
-hl.animation({ leaf = "layersIn", enabled = true, speed = 4, bezier = "easeOutQuint", style = "slide" })
-hl.animation({ leaf = "layersOut", enabled = true, speed = 1.5, bezier = "linear", style = "slide" })
-hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1.79, bezier = "almostLinear" })
-hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39, bezier = "almostLinear" })
+hl.animation({ leaf = "windows", enabled = true, speed = 2, spring = "bouncy" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 5, spring = "bouncy", style = "slide" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 5, bezier = "easeOutQuint", style = "slide" })
+hl.animation({ leaf = "fadeIn", enabled = false, speed = 1.73, bezier = "almostLinear" })
+hl.animation({ leaf = "fadeOut", enabled = false, speed = 1.46, bezier = "almostLinear" })
+hl.animation({ leaf = "fade", enabled = false, speed = 3.03, bezier = "quick" })
+hl.animation({ leaf = "layers", enabled = true, speed = 4, bezier = "easeInOutCubic" })
+hl.animation({ leaf = "layersIn", enabled = true, speed = 4, bezier = "easeInOutCubic", style = "slide" })
+hl.animation({ leaf = "layersOut", enabled = true, speed = 3, bezier = "easeInOutCubic", style = "slide" })
+hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1.5, bezier = "easeInOutCubic" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.5, bezier = "easeInOutCubic" })
 
 ---- Custom Workspace animations ----
-hl.animation({ leaf = "workspaces", enabled = true, speed = 2.5, bezier = "easeOutQuint", style = "fade" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 2.5, bezier = "easeOutQuint", style = "slide" })
 hl.animation({ leaf = "workspacesIn", enabled = true, speed = 2.5, bezier = "easeOutQuint", style = "slide" })
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 2.5, bezier = "easeOutQuint", style = "slide" })
 hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" })
@@ -204,3 +204,8 @@ hl.window_rule({
     size = "monitor_w*0.5 monitor_h*0.25",
     move = "monitor_w*0.0 monitor_h*0.75"
 })
+
+-------------------------------------------------------------------
+---
+
+allow_tearing = true

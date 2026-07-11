@@ -1,0 +1,6 @@
+[Unit]
+Description=Battery level alert
+
+[Service]
+Type=oneshot
+ExecStart=/home/luminara/.config/hypr/scripts/battery-alert.sh

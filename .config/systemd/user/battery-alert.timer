@@ -1,0 +1,9 @@
+[Unit]
+Description=Run battery alert check periodically
+
+[Timer]
+OnBootSec=30
+OnUnitActiveSec=60
+
+[Install]
+WantedBy=timers.target

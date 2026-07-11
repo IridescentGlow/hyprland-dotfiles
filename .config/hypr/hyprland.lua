@@ -164,12 +164,13 @@ hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 
 
 ---- CUSTOM BINDS ----
+
 ----     APPS     ----
 
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("kitty -e btop"))
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("kitty -e zsh -c 'cava; exec zsh'"))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("kitty -e zsh -c 'neofetch; exec zsh'"))
-hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("kitty -e cmatrix -b -C white"))
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("kitty -e unimatrix -s 90 -l k"))
 hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("kitty -e tty-clock -t -C 6 -S -D -c"))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("kitty -e pipes.sh"))
 
@@ -186,7 +187,7 @@ hl.bind(mainMod .. " + SHIFT + L",
     hl.dsp.exec_cmd("kitty -e zsh -c 'neofetch --ascii ~/Documents/L-ascii.txt --ascii_colors 39; exec zsh'"))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(wallpaper))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("/home/luminara/Downloads/zen/zen"))
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("zen-browser"))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(bar))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(notes))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(editor))
@@ -216,7 +217,7 @@ hl.bind(mainMod .. " + SHIFT + CTRL + 6", hl.dsp.exec_cmd("sh -c \"" ..
     "hyprctl dispatch layoutmsg preselect d; " ..
     "kitty -e zsh -c 'cava; exec zsh' & sleep 0.6; " ..
     "hyprctl dispatch layoutmsg preselect d; " ..
-    "kitty -e cmatrix -b -C white & sleep 0.6; " ..
+    "kitty -e unimatrix -s 90 -l k & sleep 0.6; " ..
     "hyprctl dispatch layoutmsg preselect d; " ..
     "kitty -e zsh -c 'while true; do tty-clock -b -C 6 -S -t -c -D; done' &" ..
     "\""))
@@ -229,7 +230,7 @@ hl.bind(mainMod .. " + SHIFT + CTRL + 7", hl.dsp.exec_cmd("sh -c \"" ..
     "hyprctl dispatch layoutmsg preselect r; " ..
     "kitty -e pipes.sh & sleep 0.6; " ..
     "hyprctl dispatch layoutmsg preselect r; " ..
-    "kitty -e cmatrix -b -C white & sleep 0.6; " ..
+    "kitty -e unimatrix -s 90 -l k & sleep 0.6; " ..
     "hyprctl dispatch layoutmsg preselect r; " ..
     "kitty -o background_image=" ..
     eyePics[1] ..
@@ -246,7 +247,7 @@ hl.bind(mainMod .. " + SHIFT + CTRL + 8", hl.dsp.exec_cmd("sh -c \"" ..
     "hyprctl dispatch layoutmsg preselect r; " ..
     "kitty -e pipes.sh & sleep 0.6; " ..
     "hyprctl dispatch layoutmsg preselect r; " ..
-    "kitty -e cmatrix -b -C white & sleep 0.6; " ..
+    "kitty -e unimatrix -s 90 -l k & sleep 0.6; " ..
     "hyprctl dispatch layoutmsg preselect r; " ..
     "kitty -o background_image=" ..
     eyePics[2] ..
@@ -263,7 +264,7 @@ hl.bind(mainMod .. " + SHIFT + CTRL + 9", hl.dsp.exec_cmd("sh -c \"" ..
     "hyprctl dispatch layoutmsg preselect r; " ..
     "kitty -e pipes.sh & sleep 0.6; " ..
     "hyprctl dispatch layoutmsg preselect r; " ..
-    "kitty -e cmatrix -b -C white & sleep 0.6; " ..
+    "kitty -e unimatrix -s 90 -l k & sleep 0.6; " ..
     "hyprctl dispatch layoutmsg preselect r; " ..
     "kitty -o background_image=" ..
     eyePics[3] ..
