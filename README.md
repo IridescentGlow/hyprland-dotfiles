@@ -2,7 +2,7 @@
 
 My personal Hyprland rice — Lua-based config, wallpaper/color sync, custom keybinds, and a themed swaync/waybar setup.
 
-![Workspace 1 dashboard, amber theme](screenshots/dashboard-blue2.png)
+![Workspace 1 dashboard, purple theme](screenshots/dashboard-purple.png)
 
 ## Table of Contents
 
@@ -23,9 +23,8 @@ My personal Hyprland rice — Lua-based config, wallpaper/color sync, custom key
 ## Dependencies
 
 ```bash
-sudo pacman -S waypaper swww jq btop cava cmatrix yazi
-yay -S python-pywal tock
-cargo install tock   # if not available via AUR
+sudo pacman -S waypaper swww jq btop cava unimatrix yazi tty-clock
+yay -S python-pywal
 ```
 
 Other tools referenced below: `swaync`, `waybar`, `kitty`, `pipes.sh`, `neofetch`.
@@ -46,9 +45,9 @@ The whole workspace-1 dashboard (see below) re-themes automatically with whateve
 
 | | | |
 |---|---|---|
-| ![Blue](screenshots/dashboard-blue1.png) | ![Green](screenshots/dashboard-green1.png) | ![Blue/eyes](screenshots/dashboard-blue2.png) |
-| ![Green/eyes](screenshots/dashboard-green2.png) | ![Amber](screenshots/dashboard-amber.png) | ![Purple](screenshots/dashboard-purple1.png) |
-| ![Sakura](screenshots/dashboard-sakura.png) | ![Purple/eyes](screenshots/dashboard-purple2.png)|
+| ![Blue 1](screenshots/dashboard-blue1.png) | ![Amber](screenshots/dashboard-amber.png) | ![Green 1](screenshots/dashboard-green1.png) |
+| ![Sakura](screenshots/dashboard-sakura.png) | ![Pink](screenshots/dashboard-pink.png) | ![Blue 2](screenshots/dashboard-blue2.png) |
+| ![Green 2](screenshots/dashboard-green2.png) | ![Purple](screenshots/dashboard-purple.png) | |
 
 ---
 
@@ -75,15 +74,15 @@ Key fixes made along the way:
 
 ## Workspace 1 — Tiled Dashboard Layout
 
-A dwindle-tiled dashboard that launches automatically on boot: neofetch (custom ASCII art), yazi, `tock` (clock), cmatrix, and cava, arranged via sequential `preselect` split direction dispatchers. Colors across every panel — including the neofetch ASCII, clock, and cava bars — automatically re-theme with whatever pywal generates from the current wallpaper (see the gallery under [Wallpaper & Color Sync](#wallpaper--color-sync) above).
+A dwindle-tiled dashboard that launches automatically on boot: neofetch (custom ASCII art), yazi, `tty-clock`, `unimatrix`, and cava, arranged via sequential `preselect` split direction dispatchers. Colors across every panel — including the neofetch ASCII, clock, and cava bars — automatically re-theme with whatever pywal generates from the current wallpaper (see the gallery under [Wallpaper & Color Sync](#wallpaper--color-sync) above).
 
 ```
 ┌──────────────┬─────────────┐
 │              │ yazi        │
 │ neofetch     ├─────────────┤
-│              │ tock        │
+│              │ tty-clock   │
 │              ├─────────────┤
-│              │ cmatrix     │
+│              │ unimatrix   │
 ├──────────────┼─────────────┤
 │              │ cava        │
 └──────────────┴─────────────┘
@@ -136,12 +135,7 @@ Modified the [pixie-sddm](https://github.com/xCaptaiN09/pixie-sddm) theme:
 - Removed the avatar circle and login arrow button (`visible: false` in `Main.qml`)
 - Removed the dark card background entirely (`color: "transparent"`), fixed the card's stale height/centering math
 - Scaled down all hardcoded `font.pixelSize` values (the theme's `fontSize` config option isn't actually wired up in the QML — has no effect)
-
-Disabled `ly` in favor of `sddm`:
-```bash
-sudo systemctl disable ly@tty1.service
-sudo systemctl enable sddm.service
-```
+- Removed the top-left date text and top-right power/suspend/restart icon row (`PowerBar` component) for a cleaner, minimal login screen
 
 ---
 
