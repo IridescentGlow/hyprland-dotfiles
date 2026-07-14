@@ -200,7 +200,7 @@ hl.bind(mainMod .. " + ALT + N",
         "kitty --listen-on unix:/tmp/kitty-now-playing -e /home/luminara/.config/hypr/scripts/now-playing.sh"))
 hl.bind(mainMod .. " + ALT + S", hl.dsp.exec_cmd("/home/luminara/.config/hypr/scripts/shadow-toggle.sh"))
 hl.bind(mainMod .. " + ALT + D",
-    hl.dsp.exec_cmd("sh -c 'pgrep -x hyprsunset && pkill -x hyprsunset || hyprsunset -t 4000 &'"))
+    hl.dsp.exec_cmd("sh -c 'pgrep -x hyprsunset && pkill -x hyprsunset || hyprsunset -t 3000 &'"))
 -- hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(code))
 
 
