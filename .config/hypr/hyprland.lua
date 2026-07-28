@@ -205,6 +205,12 @@ hl.bind(mainMod .. " + ALT + D",
 
 
 --------------------
+---- HYPRLOCK ----
+--------------------
+
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("/home/luminara/.config/hypr/scripts/lockscreen.sh"))
+
+--------------------
 ---- DASHBOARDS ----
 --------------------
 
