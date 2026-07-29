@@ -1,0 +1,105 @@
+@import "/home/luminara/.cache/wal/colors-rofi-dark.rasi"
+
+* {
+    bg-col:        @background;
+    bg-col-right:  @background;
+    sel-col:       @color1;
+    border-col:    @color2;
+    fg-col:        #ffffff;
+    fg-muted:      @color8;
+}
+
+configuration {
+    modi:                       "drun,run,filebrowser";
+    show-icons:                 true;
+    icon-theme:                 "Papirus";
+    display-drun:               "";
+    drun-display-format:        "{icon} {name}";
+    font:                       "JetBrainsMono Font 11";
+}
+
+window {
+    width:             900px;
+    height:            500px;
+    padding:           0px;
+    border:            0px;
+    border-color:      @border-col;
+    border-radius:     14px;
+    background-color:  @bg-col;
+}
+
+mainbox {
+    orientation:       horizontal;
+    spacing:           0px;
+    padding:           0px;
+    background-color:  transparent;
+    children:          [ wallpaperbox, rightbox ];
+}
+
+wallpaperbox {
+    width:             350px;
+    padding:           0px;
+    margin:            0px;
+    background-image:  url("/home/luminara/.cache/wal/current_wallpaper", height);
+    border-radius:      14px 0px 0px 14px;
+}
+
+rightbox {
+    width:             550px;
+    padding:           20px;
+    spacing:           14px;
+    background-color:  @bg-col-right;
+    border-radius:      0px 14px 14px 0px;
+    children:          [ inputbar, listview ];
+}
+
+inputbar {
+    background-color:  @sel-col;
+    border-radius:      8px;
+    padding:            10px 12px;
+    children:          [ entry ];
+}
+
+entry {
+    background-color:   transparent;
+    text-color:          @fg-col;
+    placeholder:         "Search...";
+    placeholder-color:   @fg-muted;
+}
+
+listview {
+    background-color:  transparent;
+    columns:            1;
+    lines:              8;
+    spacing:            4px;
+    cycle:              true;
+    dynamic:            true;
+}
+
+element {
+    padding:            8px;
+    border:             0px;
+    border-radius:       8px;
+    background-color:   transparent;
+    text-color:          @fg-col;
+    orientation:         horizontal;
+}
+
+element-icon {
+    size:               24px;
+    vertical-align:      0.5;
+}
+
+element-text {
+    padding:            0px 10px;
+    vertical-align:      0.5;
+    text-color:          inherit;
+}
+
+element selected {
+    border:              10px;
+    border-color:        @border-col;
+    border-radius:        8px;
+    background-color:    @sel-col;
+    text-color:           @fg-col;
+}
