@@ -22,7 +22,7 @@ window {
     width:             900px;
     height:            500px;
     padding:           0px;
-    border:            0px;
+    border:            3px;
     border-color:      @border-col;
     border-radius:     14px;
     background-color:  @bg-col;
