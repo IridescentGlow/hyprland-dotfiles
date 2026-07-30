@@ -172,6 +172,17 @@ hl.window_rule({
     opacity = "0.85 0.75"
 })
 
+hl.layer_rule({
+    match = { namespace = "^rofi$" },
+    blur = true,
+    ignore_alpha = 0.1,
+})
+
+-- hl.layer_rule({
+--     match = { namespace = "rofi" },
+--     shadow = true,
+-- })
+
 --------------------------------------------------------
 
 -- hl.window_rule({

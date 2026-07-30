@@ -173,7 +173,7 @@ hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("kitty -e zsh -c 'neofetch; e
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("kitty -e unimatrix -s 90 -l k"))
 hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("kitty -e tty-clock -t -C 6 -S -D -c"))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("kitty -e pipes.sh"))
-
+hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("rofi -show drun -theme /home/luminara/.config/rofi/config.rasi"))
 for i = 1, 3 do
     hl.bind(mainMod .. " + SHIFT + CTRL + " .. i,
         hl.dsp.exec_cmd("kitty -o background_image=" .. eyePics[i] ..
@@ -318,13 +318,15 @@ end)
 ----     CHANGE    ----
 ----   WALLPAPER   ----
 
+----     CHANGE    ----
+----   WALLPAPER   ----
 for i = 2, 9 do
     hl.bind(mainMod .. " + ALT + " .. i,
         hl.dsp.exec_cmd("waypaper --wallpaper '" .. wallpapers[i] .. "'"))
 end
 
 for i = 2, 9 do
-    hl.bind(mainMod .. " + CTRL + SHIFT + ALT + " .. i,
+    hl.bind(mainMod .. " + SHIFT + ALT + " .. i,
         hl.dsp.exec_cmd("sh -c \"echo 'Key: " ..
             i ..
             " Path: " ..
@@ -333,7 +335,9 @@ for i = 2, 9 do
             wallpapers[i] ..
             "' && wal -i '" ..
             wallpapers[i] ..
-            "' >> /tmp/wallpaper_debug.log 2>&1; pkill -x waybar; while pgrep -x waybar > /dev/null; do sleep 0.1; done; setsid waybar &\""))
+            "' >> /tmp/wallpaper_debug.log 2>&1; ln -sf '" ..
+            wallpapers[i] ..
+            "' ~/.cache/wal/current_wallpaper; python3 ~/.config/neofetch/recolor_frames.py; ~/.config/rofi/generate_transparency.sh; pkill -x waybar; while pgrep -x waybar > /dev/null; do sleep 0.1; done; setsid waybar &\""))
 end
 
 for i = 2, 9 do

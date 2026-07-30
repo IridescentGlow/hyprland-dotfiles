@@ -12,21 +12,16 @@ cleanup() {
     stty sane 2>/dev/null
     printf '\e[<u' 2>/dev/null
     tput cnorm 2>/dev/null
-    tput rs1 2>/dev/null
     clear
 }
 trap 'cleanup; exit 0' INT TERM
 trap cleanup EXIT ERR
 
 if [[ ! -f "$cache_file" || $(find "$cache_file" -mmin +60 2>/dev/null) ]]; then
-  if command -v fastfetch >/dev/null 2>&1; then
-    fastfetch --logo none > "$cache_file" 2>/dev/null
-  else
-    neofetch --disable ascii > "$cache_file" 2>/dev/null
-  fi
+    neofetch --backend off --disable ascii > "$cache_file" 2>/dev/null
 fi
 
-frames=(~/.config/neofetch/frames_compressed/*.txt)
+frames=(~/.config/neofetch/frames_pywal/*.txt)
 if [[ ${#frames[@]} -eq 0 ]]; then
     cleanup
     exit 0
@@ -34,8 +29,13 @@ fi
 
 clear
 tput civis
-tput cup "$ascii_row" "$text_col"
-cat "$cache_file"
+
+row="$ascii_row"
+while IFS= read -r line; do
+    tput cup "$row" "$text_col"
+    printf '%s\n' "$line"
+    ((row++))
+done < "$cache_file"
 
 while true; do
     for frame in "${frames[@]}"; do

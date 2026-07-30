@@ -5,6 +5,7 @@
     bg-col-right:  @background;
     sel-col:       @color1;
     border-col:    @color2;
+    outer-border:  @urgent-background;
     fg-col:        #ffffff;
     fg-muted:      @color8;
 }
@@ -23,7 +24,7 @@ window {
     height:            500px;
     padding:           0px;
     border:            3px;
-    border-color:      @border-col;
+    border-color:      @outer-border;
     border-radius:     14px;
     background-color:  @bg-col;
 }
