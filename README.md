@@ -31,6 +31,8 @@ Other tools referenced below: `swaync`, `waybar`, `kitty`, `pipes.sh`, `neofetch
 
 ---
 
+
+
 ## Wallpaper & Color Sync
 
 Wallpapers are set via `waypaper`/`swww`, with `pywal` regenerating a color palette from each new wallpaper and syncing it to waybar and the Hyprland active border color.
