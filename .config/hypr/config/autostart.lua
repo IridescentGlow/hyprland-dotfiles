@@ -2,6 +2,7 @@ hl.on("hyprland.start", function()
     ---- BACKGROUND APPS ----
     -- hl.exec_cmd("brightnessctl set 80%")
     hl.exec_cmd("nm-applet")
+    hl.exec_cmd("keychain --eval --quiet id_ed25519")
     hl.exec_cmd("waypaper --restore")
     hl.exec_cmd("firefox", { workspace = "1 silent" })
     hl.exec_cmd("bluetoothctl connect E4:61:F4:BB:2A:67")
@@ -26,4 +27,13 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("picom")
     hl.exec_cmd("hyprsunset")
     hl.exec_cmd("notify-send 'Lua event works'")
+
+    ---- TERMINAL TEXT-SCRAMBLE EFFECT ----
+    -- Watches Hyprland events and plays the scramble overlay on kitty
+    -- windows. It refuses to start a second copy (pidfile guard), so this
+    -- is safe across config reloads. Status/diagnosis:
+    --   ~/.config/hypr/scripts/term-scramble-status.sh
+    -- Turn it off:
+    --   ~/.config/hypr/scripts/term-scramble-disable.sh
+    hl.exec_cmd("/home/luminara/.config/hypr/scripts/term-scramble-listener.sh")
 end)

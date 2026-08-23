@@ -133,12 +133,19 @@ hl.layer_rule({
     ignore_alpha = 0.058,
     animation = "slide right"
 })
-
 hl.layer_rule({
     match = { namespace = "^swaync-notification-window$" },
     blur = true,
     ignore_alpha = 0.058
 })
+
+-- hl.layer_rule({
+--     match = { namespace = "^swaync-control-center$" },
+--     blur = false,
+--     shadow = true,
+--     ignore_alpha = 0.058,
+--     animation = "slide right"
+-- })
 
 hl.layer_rule({
     match = { namespace = "^waybar$" },
@@ -168,7 +175,13 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    match = { class = "^(org.kde.dolphin)$" },
+    match = { class = "^(obsidian)$" },
+    opacity = "0.85 0.75",
+    workspace = 4
+})
+
+hl.window_rule({
+    match = { class = "^(nautilus)$" },
     opacity = "0.85 0.75"
 })
 

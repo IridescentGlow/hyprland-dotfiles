@@ -70,6 +70,7 @@ css = Gtk.CssProvider()
 css.load_from_data(b"""
 #hour, #minute {
   font-family: Poppins;
+  font-weight: 600;
   font-size: 150px;
   color: #F0CDA0;
 }

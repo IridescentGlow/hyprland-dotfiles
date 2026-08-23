@@ -39,17 +39,18 @@ require("config/windows")
 
 
 -- Set programs that you use
-local terminal    = "kitty"
-local fileManager = "kitty -e yazi"
-local menu        = "hyprlauncher"
-local wallpaper   = "waypaper"
-local browser     = "firefox"
-local bar         = "waybar"
-local notes       = "obsidian"
-local editor      = "zeditor"
-local bluetooth   = "blueman-manager"
-local clock       = "tty-clock"
-local code        = "code" ----Unused----
+local terminal      = "kitty"
+local fileManager   = "kitty -e yazi"
+local fileManagerUi = "nautilus"
+local menu          = "hyprlauncher"
+local wallpaper     = "waypaper"
+local browser       = "firefox"
+local bar           = "waybar"
+local notes         = "obsidian"
+local editor        = "zeditor"
+local bluetooth     = "blueman-manager"
+local clock         = "tty-clock"
+local code          = "code" ----Unused----
 
 
 
@@ -156,6 +157,7 @@ local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + M",
     hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(fileManagerUi))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
@@ -189,7 +191,7 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(wallpaper))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("zen-browser"))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(bar))
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(notes))
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("obsidian --ozone-platform=x11"))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(editor))
 hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(bluetooth))
 hl.bind(mainMod .. " + ALT + M", hl.dsp.exec_cmd("spotify"))
@@ -419,4 +421,26 @@ hl.window_rule({
     opacity = "0.0"
 })
 
-hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.exec_cmd("sh -c \"kitty --class dummy-unfocus -e sleep 0.1 &\""))
+-- Emergency stop for the terminal scramble effect: kills the listener, any
+-- in-flight trigger and any running overlay renderer, clears the stale
+-- lock/pid files, and blocks further triggers until the listener is started
+-- again. Nothing compositor-side is involved, and the real kitty panes are
+-- left untouched (see term-scramble-disable.sh for why each step is needed).
+-- This chord previously spawned a 1x1 transparent "dummy-unfocus" kitty as a
+-- focus-event test helper; that helper is gone, the window rule above is now
+-- unused, and a stop shortcut is the more useful thing to have here.
+hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.exec_cmd("/home/luminara/.config/hypr/scripts/term-scramble-disable.sh"))
+
+-- Manual test trigger for the terminal-only text-scramble effect (see
+-- ~/.config/hypr/scripts/term-scramble-trigger.sh): scrambles the focused
+-- window's content for ~0.45s via a kitty overlay, but only if it's kitty.
+-- Same effect the event listener fires automatically on workspace switches/
+-- window opens/focus changes (term-scramble-listener.sh, not autostarted).
+-- Emergency off: ~/.config/hypr/scripts/term-scramble-disable.sh
+--
+-- The desktop-wide screen_shader prototype this bind used to point at is
+-- abandoned (full-screen pixel glitch, not text, with known Hyprland
+-- reload-stability issues) - scramble-trigger.sh/scramble-listener.sh/
+-- scramble-disable.sh are dead code kept only in case they're wanted for
+-- reference, and are not wired to anything anymore.
+hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd("/home/luminara/.config/hypr/scripts/term-scramble-manual.sh"))
