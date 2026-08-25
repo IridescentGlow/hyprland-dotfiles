@@ -122,7 +122,7 @@ autoload -Uz compinit && compinit
 #
 # Animated splash (interactive shells only)
 # if [[ -n $PS1 ]]; then
-#     ~/.config/neofetch/animated-neofetch.sh 0.05 5
+#     ~/.config/fastfetch/animated-fastfetch.sh 0.05 5
 # fi
 
 # add-zsh-hook precmd show_splash
@@ -134,4 +134,4 @@ export PATH=~/.npm-global/bin:$PATH
 # Added by Antigravity CLI installer
 export PATH="/home/luminara/.local/bin:$PATH"
 export LIBVIRT_DEFAULT_URI="qemu:///system"
-alias splash='~/.config/neofetch/animated-neofetch.sh 0.05'
+alias splash='~/.config/fastfetch/animated-fastfetch.sh 0.05'

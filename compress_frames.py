@@ -1,7 +1,7 @@
 import re, glob, os
 
-src_dir = os.path.expanduser("~/.config/neofetch/frames_colour")
-dst_dir = os.path.expanduser("~/.config/neofetch/frames_compressed")
+src_dir = os.path.expanduser("~/.config/fastfetch/frames_colour")
+dst_dir = os.path.expanduser("~/.config/fastfetch/frames_compressed")
 os.makedirs(dst_dir, exist_ok=True)
 
 cell = re.compile(r'\x1b\[38;2;(\d+);(\d+);(\d+)m(.)\x1b\[0m')

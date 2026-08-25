@@ -9,8 +9,8 @@ def saturate(rgb, factor=1.5):
     return (round(r*255), round(g*255), round(b*255))
 
 wal_colors_file = os.path.expanduser("~/.cache/wal/colors")
-src_dir = os.path.expanduser("~/.config/neofetch/frames_compressed")
-dst_dir = os.path.expanduser("~/.config/neofetch/frames_pywal")
+src_dir = os.path.expanduser("~/.config/fastfetch/frames_compressed")
+dst_dir = os.path.expanduser("~/.config/fastfetch/frames_pywal")
 os.makedirs(dst_dir, exist_ok=True)
 
 def hex_to_rgb(h):

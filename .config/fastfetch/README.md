@@ -1,27 +1,27 @@
-# Neofetch Config 
+# Fastfetch Config 
 
 ───────────────────────────────────────────────  
  °˖* ૮( • ᴗ ｡)っ🍸 shheersh - Dionysus vers. 1.0   
  ───────────────────────────────────────────────  
 
-## Custom animated **Neofetch**.
+## Custom animated **Fastfetch**.
 
 
-![Neofetch Demo Gif](../../assets/demo-neofetch.gif)  
+![Fastfetch Demo Gif](../../assets/demo-fastfetch.gif)  
 ---
 
 ##  Features
   - Minimal info layout 
-  - **Animated Ascii** via `animated-neofetch.sh` 
+  - **Animated Ascii** via `animated-fastfetch.sh` 
   - Fast load.
 
-![Neofetch Demo Png](../../assets/demo-neofetch.png)
+![Fastfetch Demo Png](../../assets/demo-fastfetch.png)
 
 ```
-neofetch/  
+fastfetch/  
 ├── config.conf  
 ├── myascii.txt  
-├── animated-neofetch.sh  
+├── animated-fastfetch.sh  
 ├── frames_colour/  
 ├── demo.gif  
 └── demo.png  
@@ -30,14 +30,14 @@ neofetch/
 ## Usage
 Add to your `~/.bashrc` or `~/.zshrc` (or whatever shell rc you use):
 ```
-####  Animated Neofetch Splash
+####  Animated Fastfetch Splash
 if [[ -n $PS1 ]]; then
-   ~/.config/neofetch/animated-neofetch.sh 0.05
+   ~/.config/fastfetch/animated-fastfetch.sh 0.05
   clear
 fi
 ```
 Frames live in `frames_colour` can be changed to whatever.
 
-**Note:** animated-neofetch.sh caches your neofetch setting for faster load, SO if you make edits please remember to `rm -f ~/.cache/neofetch.txt`.. I'm aware there is fast fetch. 
+**Note:** animated-fastfetch.sh caches your fastfetch setting for faster load, SO if you make edits please remember to `rm -f ~/.cache/fastfetch.txt`.. I'm aware there is fast fetch. 
  
 

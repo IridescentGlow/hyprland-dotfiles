@@ -3,7 +3,7 @@ delay=${1:-0.1}
 ascii_row=1
 ascii_col=1
 text_col=60
-cache_file="$HOME/.cache/neofetch.txt"
+cache_file="$HOME/.cache/fastfetch.txt"
 mkdir -p ~/.cache
 old_stty=$(stty -g)
 
@@ -21,7 +21,7 @@ if [[ ! -f "$cache_file" || $(find "$cache_file" -mmin +60 2>/dev/null) ]]; then
     neofetch --backend off --disable ascii > "$cache_file" 2>/dev/null
 fi
 
-frames=(~/.config/neofetch/frames_pywal/*.txt)
+frames=(~/.config/fastfetch/frames_pywal/*.txt)
 if [[ ${#frames[@]} -eq 0 ]]; then
     cleanup
     exit 0

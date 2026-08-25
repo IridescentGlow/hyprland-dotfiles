@@ -171,7 +171,7 @@ hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("kitty -e btop"))
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("kitty -e zsh -c 'cava; exec zsh'"))
-hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("kitty -e zsh -c 'neofetch; exec zsh'"))
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("kitty -e zsh -c 'fastfetch; exec zsh'"))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("kitty -e unimatrix -s 90 -l k"))
 hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("kitty -e tty-clock -t -C 6 -S -D -c"))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("kitty -e pipes.sh"))
@@ -339,7 +339,7 @@ for i = 2, 9 do
             wallpapers[i] ..
             "' >> /tmp/wallpaper_debug.log 2>&1; ln -sf '" ..
             wallpapers[i] ..
-            "' ~/.cache/wal/current_wallpaper; python3 ~/.config/neofetch/recolor_frames.py; ~/.config/rofi/generate_transparency.sh; pkill -x waybar; while pgrep -x waybar > /dev/null; do sleep 0.1; done; setsid waybar &\""))
+            "' ~/.cache/wal/current_wallpaper; python3 ~/.config/fastfetch/recolor_frames.py; ~/.config/rofi/generate_transparency.sh; pkill -x waybar; while pgrep -x waybar > /dev/null; do sleep 0.1; done; setsid waybar &\""))
 end
 
 for i = 2, 9 do

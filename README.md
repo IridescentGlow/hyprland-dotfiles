@@ -27,7 +27,7 @@ sudo pacman -S waypaper swww jq btop cava unimatrix yazi tty-clock
 yay -S python-pywal
 ```
 
-Other tools referenced below: `swaync`, `waybar`, `kitty`, `pipes.sh`, `neofetch`.
+Other tools referenced below: `swaync`, `waybar`, `kitty`, `pipes.sh`, `fastfetch`.
 
 ---
 
@@ -76,12 +76,12 @@ Key fixes made along the way:
 
 ## Workspace 1 — Tiled Dashboard Layout
 
-A dwindle-tiled dashboard that launches automatically on boot: neofetch (custom ASCII art), yazi, `tty-clock`, `unimatrix`, and cava, arranged via sequential `preselect` split direction dispatchers. Colors across every panel — including the neofetch ASCII, clock, and cava bars — automatically re-theme with whatever pywal generates from the current wallpaper (see the gallery under [Wallpaper & Color Sync](#wallpaper--color-sync) above).
+A dwindle-tiled dashboard that launches automatically on boot: fastfetch (custom ASCII art), yazi, `tty-clock`, `unimatrix`, and cava, arranged via sequential `preselect` split direction dispatchers. Colors across every panel — including the fastfetch ASCII, clock, and cava bars — automatically re-theme with whatever pywal generates from the current wallpaper (see the gallery under [Wallpaper & Color Sync](#wallpaper--color-sync) above).
 
 ```
 ┌──────────────┬─────────────┐
 │              │ yazi        │
-│ neofetch     ├─────────────┤
+│ fastfetch    ├─────────────┤
 │              │ tty-clock   │
 │              ├─────────────┤
 │              │ unimatrix   │
@@ -121,7 +121,7 @@ Opacity window rules (`0.85` active / `0.75` inactive) applied to: Firefox, kitt
   kitty -o background_image=/path/to/image.jpg -o background_image_layout=cscaled \
         -o window_padding_width=0 -e sh -c 'printf "\e[?25l"; clear; sleep infinity'
   ```
-- Custom neofetch ASCII art with randomized bold keyboard characters (`# @ % & $ *`) — visible in the top-left panel of every dashboard screenshot above.
+- Custom fastfetch ASCII art with randomized bold keyboard characters (`# @ % & $ *`) — visible in the top-left panel of every dashboard screenshot above.
 
 ---
 
