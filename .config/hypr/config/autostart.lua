@@ -10,7 +10,7 @@ hl.on("hyprland.start", function()
     ---- WORKSPACE 1 TILE ARRANGEMENT ----
     -- hl.exec_cmd("sh -c \"" ..
     --     "sleep 5; hyprctl dispatch workspace 1; sleep 0.5; " ..
-    --     "kitty -e zsh -c 'neofetch --ascii ~/Documents/Au5_ascii.txt; exec zsh' & sleep 1; " ..
+    --     "kitty -e zsh -c 'fastfetch --file ~/.config/fastfetch/Au5_ascii.fastfetch.txt --logo-color-1 magenta; exec zsh' & sleep 1; " ..
     --     "hyprctl dispatch layoutmsg preselect r; " ..
     --     "kitty -e yazi & sleep 1; " ..
     --     "hyprctl dispatch layoutmsg preselect d; " ..

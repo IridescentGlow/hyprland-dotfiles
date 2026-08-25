@@ -184,9 +184,9 @@ end
 
 hl.bind(mainMod .. " + ALT + B", hl.dsp.exec_cmd("/home/luminara/.config/hypr/scripts/border-toggle.sh"))
 hl.bind(mainMod .. " + SHIFT + A",
-    hl.dsp.exec_cmd("kitty -e zsh -c 'neofetch --ascii ~/Documents/Au5_ascii.txt; exec zsh'"))
+    hl.dsp.exec_cmd("kitty -e zsh -c 'fastfetch --file ~/.config/fastfetch/Au5_ascii.fastfetch.txt --logo-color-1 magenta; exec zsh'"))
 hl.bind(mainMod .. " + SHIFT + L",
-    hl.dsp.exec_cmd("kitty -e zsh -c 'neofetch --ascii ~/Documents/L-ascii.txt --ascii_colors 39; exec zsh'"))
+    hl.dsp.exec_cmd("kitty -e zsh -c 'fastfetch --file ~/.config/fastfetch/L-ascii.fastfetch.txt --logo-color-1 @39; exec zsh'"))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(wallpaper))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("zen-browser"))
@@ -219,7 +219,7 @@ hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("/home/luminara/.config/hypr/scripts/
 hl.bind(mainMod .. " + SHIFT + CTRL + 6", hl.dsp.exec_cmd("sh -c \"" ..
     "/home/luminara/.config/hypr/scripts/wallpaper-sync.sh '/home/luminara/Pictures/wallpaper3.jpg'; " ..
     "hyprctl dispatch workspace 1; sleep 0.3; " ..
-    "kitty -e zsh -c 'neofetch --ascii ~/Documents/Au5_ascii.txt; exec zsh' & sleep 0.6; " ..
+    "kitty -e zsh -c 'fastfetch --file ~/.config/fastfetch/Au5_ascii.fastfetch.txt --logo-color-1 magenta; exec zsh' & sleep 0.6; " ..
     "hyprctl dispatch layoutmsg preselect r; " ..
     "kitty -e yazi & sleep 0.6; " ..
     "hyprctl dispatch layoutmsg preselect d; " ..

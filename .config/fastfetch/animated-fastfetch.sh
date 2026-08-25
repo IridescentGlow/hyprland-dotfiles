@@ -18,7 +18,7 @@ trap 'cleanup; exit 0' INT TERM
 trap cleanup EXIT ERR
 
 if [[ ! -f "$cache_file" || $(find "$cache_file" -mmin +60 2>/dev/null) ]]; then
-    neofetch --backend off --disable ascii > "$cache_file" 2>/dev/null
+    fastfetch --logo none > "$cache_file" 2>/dev/null
 fi
 
 frames=(~/.config/fastfetch/frames_pywal/*.txt)
