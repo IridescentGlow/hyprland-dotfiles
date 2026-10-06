@@ -1,22 +1,64 @@
 #!/usr/bin/env bash
+# One idempotent battery check. Safe to run as often as you like -- it only
+# notifies on an actual change, using a state file to remember what it has
+# already said.
+#
+# Fires on four events:
+#   charger connected      AC appears
+#   charger disconnected   AC goes away
+#   low battery            <= 25% while running on battery
+#   charge limit reached   >= 80% while plugged in
+#
+# Driven by battery-alert-watch.sh (upower events + a 60s backstop).
 
-BATTERY="BAT1"
-STATE_FILE="/tmp/battery_alert_state"
+set -uo pipefail
 
-CAPACITY=$(cat /sys/class/power_supply/$BATTERY/capacity)
-STATUS=$(cat /sys/class/power_supply/$BATTERY/status)
+BATTERY=BAT1
+AC=ACAD
+LOW=25            # warn at or below this, on battery
+HIGH=80           # warn at or above this, on AC
+LOW_CLEAR=30      # re-arm the low warning above this
+HIGH_CLEAR=75     # re-arm the high warning below this
 
-LAST_ALERT=$(cat "$STATE_FILE" 2>/dev/null || echo "none")
+STATE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/battery-alert"
+STATE="$STATE_DIR/state"
+mkdir -p "$STATE_DIR"
 
-if [ "$STATUS" = "Discharging" ]; then
-    if [ "$CAPACITY" -le 20 ] && [ "$LAST_ALERT" != "20" ]; then
-        notify-send -u critical "Battery Critical" "Battery at ${CAPACITY}% - plug in now" -i battery-caution
-        echo "20" > "$STATE_FILE"
-    elif [ "$CAPACITY" -le 99 ] && [ "$CAPACITY" -gt 20 ] && [ "$LAST_ALERT" != "40" ] && [ "$LAST_ALERT" != "20" ]; then
-        notify-send -u normal "Battery Low" "Battery at ${CAPACITY}%" -i battery-low
-        echo "40" > "$STATE_FILE"
+cap=$(cat "/sys/class/power_supply/$BATTERY/capacity" 2>/dev/null) || exit 0
+ac=$(cat "/sys/class/power_supply/$AC/online" 2>/dev/null) || exit 0
+[ -n "$cap" ] && [ -n "$ac" ] || exit 0
+
+# Previous state. prev_ac is empty on the very first run, which deliberately
+# suppresses a spurious "connected/disconnected" toast at login.
+prev_ac=""; low_warned=0; high_warned=0
+# shellcheck disable=SC1090
+[ -f "$STATE" ] && . "$STATE"
+
+notify() { notify-send -u "$1" -t "$2" "$3" "$4" -i "$5" 2>/dev/null; }
+
+# --- charger plugged / unplugged --------------------------------------------
+if [ -n "$prev_ac" ] && [ "$ac" != "$prev_ac" ]; then
+    if [ "$ac" = "1" ]; then
+        notify normal 2500 "Charger connected" "Battery at ${cap}%" battery-good-charging
+    else
+        notify normal 2500 "Charger disconnected" "Battery at ${cap}% - running on battery" battery-good
     fi
-else
-    # Reset state once charging, so alerts fire again next time it discharges
-    rm -f "$STATE_FILE"
 fi
+
+# --- low battery, on battery only -------------------------------------------
+if [ "$ac" = "0" ] && [ "$cap" -le "$LOW" ] && [ "$low_warned" -eq 0 ]; then
+    notify critical 6000 "Battery low" "${cap}% remaining - plug in the charger" battery-caution
+    low_warned=1
+elif [ "$cap" -gt "$LOW_CLEAR" ] || [ "$ac" = "1" ]; then
+    low_warned=0
+fi
+
+# --- 80% reached, on AC only ------------------------------------------------
+if [ "$ac" = "1" ] && [ "$cap" -ge "$HIGH" ] && [ "$high_warned" -eq 0 ]; then
+    notify normal 6000 "Battery at ${cap}%" "Unplug the charger to protect the battery" battery-full-charging
+    high_warned=1
+elif [ "$cap" -lt "$HIGH_CLEAR" ] || [ "$ac" = "0" ]; then
+    high_warned=0
+fi
+
+printf 'prev_ac=%s\nlow_warned=%s\nhigh_warned=%s\n' "$ac" "$low_warned" "$high_warned" > "$STATE"

@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-python3 ~/.config/hypr/scripts/preclock.py
-hyprlock -c ~/.config/hyprlock/layouts/layout5.conf
+# Don't use hyprlock-minimal.conf: its `path = screenshot` background renders
+# a fully black lock screen here (fractional scale + hybrid Intel/NVIDIA).
+hyprlock -c ~/.config/hypr/hyprlock.conf

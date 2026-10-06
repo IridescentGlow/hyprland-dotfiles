@@ -11,7 +11,17 @@ ACCENT=$(sed -n '5p' "$WAL_COLORS")
 ACCENT2=$(sed -n '6p' "$WAL_COLORS")
 INACTIVE=$(sed -n '9p' "$WAL_COLORS")
 
-cat > "$THEME_FILE" << EOF
+# Write to a temp file and rename, so a btop reload can never read a
+# half-written theme.
+TMP_THEME="$(mktemp "$THEME_FILE.XXXXXX")"
+cat > "$TMP_THEME" << EOF
+theme[meter_bg]="$INACTIVE"
+theme[used_start]="$ACCENT2"
+theme[used_mid]="$ACCENT"
+theme[used_end]="$ACCENT"
+theme[process_start]="$ACCENT2"
+theme[process_mid]="$ACCENT"
+theme[process_end]="$ACCENT"
 theme[main_bg]="$BG"
 theme[main_fg]="$FG"
 theme[title]="$FG"
@@ -48,3 +58,10 @@ theme[upload_start]="$ACCENT2"
 theme[upload_mid]="$ACCENT"
 theme[upload_end]="$ACCENT"
 EOF
+chmod 644 "$TMP_THEME"
+mv -f "$TMP_THEME" "$THEME_FILE"
+
+# btop only reads its theme at startup. SIGUSR2 makes every running btop
+# reload config + theme in place, so the new colours show up without
+# restarting it. No-op if btop isn't running.
+pkill -USR2 -x btop 2>/dev/null || true

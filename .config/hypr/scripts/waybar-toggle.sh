@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SWAYNC_CONFIG="/home/luminara/.config/swaync/config.json"
+SWAYNC_CONFIG="/home/Luminara/.config/swaync/config.json"
 
 if pgrep -x waybar > /dev/null; then
     pkill -x waybar

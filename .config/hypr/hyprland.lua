@@ -68,9 +68,9 @@ local wallpapers = {
 
 
 local eyePics = {
-    [1] = "/home/luminara/Pictures/anime-eyes-blue.jpg",
-    [2] = "/home/luminara/Pictures/anime-eyes-green.jpeg",
-    [3] = "/home/luminara/Pictures/anime-eyes-purple.png",
+    [1] = "/home/Luminara/Pictures/system/anime-eyes/anime-eyes-blue.jpg",
+    [2] = "/home/Luminara/Pictures/system/anime-eyes/anime-eyes-green.jpeg",
+    [3] = "/home/Luminara/Pictures/system/anime-eyes/anime-eyes-purple.jpg",
 }
 
 
