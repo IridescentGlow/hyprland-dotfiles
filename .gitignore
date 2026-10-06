@@ -1,3 +1,8 @@
 *.full-backup
-*.full-backup
 .config/waybar/style.css
+
+# graphify: keep the readable outputs, drop the rebuild churn and
+# machine-local sidecars (absolute interpreter/root paths).
+graphify-out/cache/
+graphify-out/.graphify_*
+graphify-out/cost.json
