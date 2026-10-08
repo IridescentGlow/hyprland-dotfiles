@@ -174,14 +174,31 @@ hl.window_rule({
     workspace = 3
 })
 
+-- Obsidian reports its class as "md.obsidian.Obsidian" (Electron uses the
+-- desktop-file ID), not "obsidian" -- the old pattern never matched, which is
+-- why it stayed opaque while everything else went translucent.
 hl.window_rule({
-    match = { class = "^(obsidian)$" },
+    match = { class = "^(md\\.obsidian\\.Obsidian)$" },
     opacity = "0.85 0.75",
     workspace = 4
 })
 
 hl.window_rule({
-    match = { class = "^(nautilus)$" },
+    match = { class = "^(discord)$" },
+    opacity = "0.85 0.75"
+})
+
+hl.window_rule({
+    match = { class = "^(super-productivity)$" },
+    opacity = "0.85 0.75"
+})
+
+-- Nautilus reports its class as "org.gnome.Nautilus" (the desktop-file ID),
+-- not "nautilus" -- the old pattern never matched, so it stayed opaque.
+-- It is dark via the GTK colour scheme (gsettings color-scheme=prefer-dark);
+-- this rule makes it translucent, and the global blur then shows through.
+hl.window_rule({
+    match = { class = "^(org\\.gnome\\.Nautilus)$" },
     opacity = "0.85 0.75"
 })
 
