@@ -3,7 +3,15 @@ hl.on("hyprland.start", function()
     -- hl.exec_cmd("brightnessctl set 80%")
     hl.exec_cmd("nm-applet")
     hl.exec_cmd("keychain --eval --quiet id_ed25519")
-    hl.exec_cmd("waypaper --restore")
+    -- Smooth parallax wallpaper: a layer-shell surface on the `bottom` layer
+    -- that slides the image as you change workspaces. It listens to Hyprland's
+    -- event socket itself, so there is no Lua side to this. Change the image
+    -- with `wallpaper-parallax.py --set <file>`; it refuses to start twice.
+    -- It is the ONLY wallpaper layer: it restores its own last image at login.
+    -- awww-daemon used to run underneath it as a hidden fallback, which meant
+    -- two wallpaper renders at boot (awww's, then this one covering it).
+    hl.exec_cmd("/home/Luminara/.config/hypr/scripts/wallpaper-parallax.py")
+    hl.exec_cmd("waybar")
     hl.exec_cmd("firefox", { workspace = "1 silent" })
     hl.exec_cmd("bluetoothctl connect E4:61:F4:BB:2A:67")
 
@@ -35,5 +43,5 @@ hl.on("hyprland.start", function()
     --   ~/.config/hypr/scripts/term-scramble-status.sh
     -- Turn it off:
     --   ~/.config/hypr/scripts/term-scramble-disable.sh
-    hl.exec_cmd("/home/luminara/.config/hypr/scripts/term-scramble-listener.sh")
+    hl.exec_cmd("/home/Luminara/.config/hypr/scripts/term-scramble-listener.sh")
 end)

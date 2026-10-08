@@ -4,8 +4,8 @@
 # Everything that reacts to the wallpaper is refreshed here, in one place, so
 # no caller can accidentally change the image without also updating the theme:
 #
-#   parallax surface -> what you actually see (wipes to the new image)
-#   awww             -> the `background` layer underneath, kept as a fallback
+#   parallax surface -> what you actually see (wipes to the new image); it is
+#                       the only wallpaper layer
 #   current_wallpaper-> the symlink rofi shows in its left-hand pane
 #   wal              -> regenerates ~/.cache/wal/* (waybar, rofi, kitty, ...)
 #   kitty            -> every open kitty gets the palette as its *default*, so
@@ -42,11 +42,8 @@ fi
 # ---- 1. the visible wallpaper -------------------------------------------
 # The parallax surface is what's on screen; it wipes to the new image.
 "$SCRIPTS/wallpaper-parallax.py" --set "$WALLPAPER"
-
-# awww paints the `background` layer hidden beneath the parallax surface.
-# Keeping it in sync means the right wallpaper is still there if the parallax
-# daemon is ever stopped, and it's what `awww restore` brings back at login.
-awww img --transition-type none "$WALLPAPER" >/dev/null 2>&1
+# (No awww layer any more: parallax restores its own image at login, so a
+# second wallpaper daemon underneath only caused a double render at boot.)
 
 # ---- 2. colours ----------------------------------------------------------
 # rofi's left pane renders this symlink directly.
