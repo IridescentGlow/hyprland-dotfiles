@@ -197,6 +197,8 @@ hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(bluetooth))
 hl.bind(mainMod .. " + ALT + M", hl.dsp.exec_cmd("spotify"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("sh -c '/home/luminara/.config/hypr/scripts/waybar-toggle.sh'"))
+-- Wallpaper follows the Spotify cover: on/off (Spicetify colours are unaffected)
+hl.bind(mainMod .. " + ALT + W", hl.dsp.exec_cmd("/home/Luminara/.config/hypr/scripts/spotify-wallpaper-toggle.sh"))
 hl.bind(mainMod .. " + ALT + N",
     hl.dsp.exec_cmd(
         "kitty --listen-on unix:/tmp/kitty-now-playing -e /home/luminara/.config/hypr/scripts/now-playing.sh"))

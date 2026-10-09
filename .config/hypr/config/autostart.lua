@@ -12,6 +12,9 @@ hl.on("hyprland.start", function()
     -- two wallpaper renders at boot (awww's, then this one covering it).
     hl.exec_cmd("/home/Luminara/.config/hypr/scripts/wallpaper-parallax.py")
     hl.exec_cmd("waybar")
+    -- Re-themes the wallpaper to match Spotify's album art. Single-instance;
+    -- toggle it with SUPER+ALT+W.
+    hl.exec_cmd("/home/Luminara/.config/hypr/scripts/spotify-wallpaper-toggle.sh autostart")
     hl.exec_cmd("firefox", { workspace = "1 silent" })
     hl.exec_cmd("bluetoothctl connect E4:61:F4:BB:2A:67")
 
